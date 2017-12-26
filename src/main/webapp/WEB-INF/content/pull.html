@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <script type='text/javascript' src='http://res.meijuhui.net/gong/js/jquery.min.js'></script>
+    <script>
+        $(function () {
+            $("#mode").change(function () {
+                var mode = $("#mode").val();
+                $("#zmzId").hide();
+                $("#ttId").hide();
+                $("#typeId").hide();
+                $("#cookies").hide();
+                $("#toId").hide();
+                $("#from").hide();
+                $("#endZmzId").hide();
+                $("#endId").hide();
+                $("#season").hide();
+                $("#month").hide();
+                $("#dbId").hide();
+                if (mode == 0) {
+                    $("#zmzId").show();
+                    $("#ttId").show();
+                    $("#typeId").show();
+                    $("#cookies").show();
+                    $("#season").show();
+                    $("#dbId").show();
+                } else if (mode == 1) {
+
+                    $("#cookies").show();
+                    $("#toId").show();
+                    $("#from").show();
+
+                } else if (mode == 2) {
+                    $("#toId").show();
+                } else if (mode == 3) {
+                    $("#zmzId").show();
+
+                    $("#cookies").show();
+
+                    $("#endZmzId").show();
+
+                } else if (mode == 4) {
+
+//                    $("#cookies").show();
+
+                } else if (mode == 5) {
+                    $("#toId").show();
+                    $("#endId").show();
+
+                } else if (mode == 58) {
+                    $("#month").show();
+                    $("#toId").show();
+                } else if (mode == 7) {
+                    $("#toId").show();
+                } else if (mode == 57) {
+                    $("#month").show();
+                }
+                else if (mode == 59) {
+                    $("#month").show();
+                }
+                else if (mode == 60) {
+                    $("#month").show();
+                } else if (mode == 61) {
+                    $("#month").show();
+                }
+            });
+        })
+    </script>
+</head>
+
+<body style="line-height: 24px;">
+<form action="/main/pullDo">
+    <select name="mode" id="mode">
+        <option value="0">新增-单条（非电影可以不用填cookie）</option>
+        <option value="3">新增从指定的字幕组Id-批量（慢）</option>
+        <option value="5">修改生成缩略图-批量</option>
+        <option value="1">修改下载地址(先配置zmzId ttId)-单条</option>
+        <option value="4">修改下载地址From zmz-批量</option>
+        <option value="55">修改下载地址From TT-批量</option>
+        <option value="2">修改相关属性(先配置zmzId)-单条</option>
+        <option value="6">修改全部Imdb 和总集数 from DB (只更新没有的)-批量</option>
+        <option value="7">修改douban相关属性(先配置dbId)-单条</option>
+        <option value="-1">------------------</option>
+        <option value="53">处理死链</option>
+        <option value="54">处理简介里面没有连接的</option>
+        <option value="91">处理关键字中的年份</option>
+        <option value="92">处理推荐 多季的问题</option>
+        <option value="-1">------------------</option>
+        <option value="51">处理所有当前集和季</option>
+        <option value="52">生成美剧新剧回归时间表</option>
+
+        <option value="59">生成每天播出表</option>
+        <option value="60">创建每月漏的新剧</option>
+        <option value="61">检测并处理开始时间有效性 zmz比较</option>
+        <option value="-1">------------------</option>
+        <option value="58">生成或修改月回顾表</option>
+        <option value="-1">------------------</option>
+        <option value="101">临时处理</option>
+        <option value="102">tagxml</option>
+    </select><br/>
+    目标ID：<input type="text" name="toId" id="toId" value="0" style="display: none"><br/>
+    from <select name="from" id="from" style="display: none">
+    <option value="0">字幕组</option>
+    <option value="1">天天</option>
+</select><br/>
+    from zmzId：<input type="text" name="zmzId" id="zmzId" value="0"/><br/>
+    from ttId：<input type="text" name="ttId" id="ttId" value="0"/><br/>
+    from dbId：<input type="text" name="dbId" id="dbId" value="0"/><br/>
+    季数: <input type="text" name="season" id="season" value="0"/><br/>
+    类型：<select name="typeId" id="typeId">
+    <option value="42">历史剧情</option>
+    <option value="43">都市情感</option>
+    <option value="37">纪录片</option>
+    <option value="35">律政医务</option>
+    <option value="36">真人秀</option>
+    <option value="34">情景喜剧</option>
+    <option value="30">动作战争</option>
+    <option value="31">科幻魔幻</option>
+    <option value="32">罪案谍战</option>
+    <option value="33">灵异惊悚</option>
+    <option value="39">动漫卡通</option>
+    <option value="44">电影下载</option>
+
+</select> <br/>
+
+    cookies：<input type="text" name="cookies" id="cookies" style="width: 800px;"><br/>
+    <br/>
+    end zmzId：<input type="text" name="endZmzId" id="endZmzId" value="0"><br/>
+    end id：<input type="text" name="endId" id="endId" value="0"><br/>
+    <input type="text" name="month" id="month" value="2017-10"/>
+    <input type="submit" value="do">
+</form>
+
+<div class="main">
+
+</div>
+
+
+</body>
+</html>

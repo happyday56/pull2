@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectroot>
+    <projects>
+        <!-- 备孕 -->
+        <project enabled="true" domain="cn163.net">
+            <target encode="utf-8" timeout="8000">
+                <wildcard_url href="http://cn163.net/ddc1/page/(*)/"
+                              startpos="1" endpos="157"/>
+                <target_filter root="" suffix="" key="class" value="archive_title"/>
+            </target>
+            <processes>
+                <process flow="false" table="" field="title">
+                    <process_regex_filter><![CDATA[<h2 class=\"entry_title\">(.+?)</h2>]]></process_regex_filter>
+                </process>
+                <process flow="false" table="" field="content">
+                    <process_tag_filter pos="1" key="class" value="entry"/>
+                </process>
+                <process flow="false" table="" field="category">
+                    <process_tag_filter pos="1" key="class" value="browse"/>
+                </process>
+            </processes>
+        </project>
+    </projects>
+</projectroot>
