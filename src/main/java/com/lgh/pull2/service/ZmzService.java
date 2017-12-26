@@ -1,8 +1,8 @@
 package com.lgh.pull2.service;
 
-import com.lgh.pull.entity.SourceArticleFive;
-import com.lgh.pull.model.DownloadUrlModel;
-import com.lgh.pull.model.PlayStatusModel;
+import com.lgh.pull2.entity.SourceArticleFive;
+import com.lgh.pull2.model.DownloadUrlModel;
+import com.lgh.pull2.model.PlayStatusModel;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
